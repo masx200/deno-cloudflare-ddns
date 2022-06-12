@@ -1,4 +1,4 @@
-import { ListZones } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.0/mod.ts";
+import { ListZones } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.1/mod.ts";
 
 export async function get_zone_id_of_name({
     api_token,

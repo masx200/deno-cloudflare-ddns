@@ -3,7 +3,7 @@ import { assert } from "https://deno.land/std@0.143.0/testing/asserts.ts";
 import {
     getPublicIpv4,
     getPublicIpv6,
-} from "https://deno.land/x/masx200_get_public_ip_address@1.0.3/mod.ts";
+} from "https://deno.land/x/masx200_get_public_ip_address@1.0.4/mod.ts";
 import { createOrPatchDNSRecord } from "./createOrPatchDNSRecord.ts";
 import { get_zone_id_of_name } from "./get_zone_id_of_name.ts";
 const intervalDefault = 30 * 1000;

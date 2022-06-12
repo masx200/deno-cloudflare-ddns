@@ -2,7 +2,7 @@ import {
     CreateDNSRecord,
     DNSRecord,
     PatchDNSRecord,
-} from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.0/mod.ts";
+} from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.1/mod.ts";
 import { get_dns_record_id_of_name_type } from "./get_dns_record_id_of_name_type.ts";
 
 export async function createOrPatchDNSRecord({
