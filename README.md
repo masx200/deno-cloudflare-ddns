@@ -10,7 +10,7 @@ https://deno.land/x/masx200_deno_cloudflare_ddns/mod.ts
 
 `startIpv4DDNS`:开始定时更新IPV4的DNS的A类型的记录
 
-`createOrPatchDNSRecord`:根据dns记录的名字和类型查找，创建或者更新DNS记录。
+`createOrPatchDNSRecord`:根据dns记录的名字和类型查找，未找到则创建或者找到后更新DNS记录。
 
 `get_zone_id_of_name`:根据`zone`的名字查找`zone`的`id`
 
