@@ -32,6 +32,10 @@ export function createStartDDNS(options: {
 
             signal,
         } = options;
+        if (signal?.aborted) {
+            return;
+        }
+
         const on_error = console.error;
         interval = Math.max(interval, intervalMinimum);
         const ttl = 1;
