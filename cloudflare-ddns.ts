@@ -20,10 +20,10 @@ export function createStartDDNS(options: {
         zone_name: string;
         dns_name: string;
         interval?: number;
-
+ttl?:number
         signal?: AbortSignal;
     }&Partial<DNSRecord>): Promise<void> {
-        let {
+        let {ttl=1,
             proxied,
             interval = intervalDefault,
             api_token,
@@ -38,7 +38,7 @@ export function createStartDDNS(options: {
 
         const on_error = console.error;
         interval = Math.max(interval, intervalMinimum);
-        const ttl = 1;
+        
         let public_ip_address: string | undefined;
         try {
             await update_ipv6();
