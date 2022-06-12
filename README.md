@@ -4,6 +4,8 @@ deno-cloudflare-ddns
 
 适用于deno 的 cloudflare ddns 客户端,支持ipv6和ipv4
 
+https://deno.land/x/masx200_deno_cloudflare_ddns/mod.ts
+
 `startIpv6DDNS`:开始定时更新IPV6的DNS
 
 `startIpv4DDNS`:开始定时更新IPV4的DNS
