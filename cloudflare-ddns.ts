@@ -22,7 +22,7 @@ export function createStartDDNS(options: {
         interval?: number;
 
         signal?: AbortSignal;
-    }): Promise<void> {
+    }&Partial<DNSRecord>): Promise<void> {
         let {
             proxied,
             interval = intervalDefault,
@@ -30,7 +30,7 @@ export function createStartDDNS(options: {
             zone_name,
             dns_name,
 
-            signal,
+            signal,...rest
         } = options;
         if (signal?.aborted) {
             return;
@@ -59,6 +59,7 @@ export function createStartDDNS(options: {
             if (public_ip_address) {
                 assert(typeof zone_id === "string");
                 const record = await createOrPatchDNSRecord({
+                    ...rest,
                     proxied,
                     ttl: ttl,
                     api_token,
