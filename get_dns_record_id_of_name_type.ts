@@ -1,4 +1,4 @@
-import { ListDNSRecords } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.1/mod.ts";
+import { ListDNSRecords } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.2/mod.ts";
 
 export async function get_dns_record_id_of_name_type({
     api_token,
