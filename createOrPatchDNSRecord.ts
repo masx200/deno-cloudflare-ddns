@@ -4,7 +4,7 @@ import {
     DNSRecord,
     PatchDNSRecord,
     PatchOptions,
-} from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.2/mod.ts";
+} from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.3/mod.ts";
 import { get_dns_record_id_of_name_type } from "./get_dns_record_id_of_name_type.ts";
 
 export async function createOrPatchDNSRecord({
@@ -17,7 +17,7 @@ export async function createOrPatchDNSRecord({
     proxied,
     ...rest
 }: {
-    content: string;
+    content?: string;
     api_token: string;
     ttl: number;
     zone_id: string;

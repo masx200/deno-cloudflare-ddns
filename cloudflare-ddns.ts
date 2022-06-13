@@ -1,6 +1,6 @@
 import { delay } from "https://deno.land/std@0.143.0/async/delay.ts";
 import { assert } from "https://deno.land/std@0.143.0/testing/asserts.ts";
-import { DNSRecord } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.2/DNSRecord.ts";
+import { DNSRecord } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.3/DNSRecord.ts";
 import {
     getPublicIpv4,
     getPublicIpv6,
