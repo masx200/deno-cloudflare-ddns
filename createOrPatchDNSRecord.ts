@@ -1,7 +1,9 @@
 import {
     CreateDNSRecord,
+    CreateOptions,
     DNSRecord,
     PatchDNSRecord,
+    PatchOptions,
 } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.2/mod.ts";
 import { get_dns_record_id_of_name_type } from "./get_dns_record_id_of_name_type.ts";
 
@@ -12,7 +14,8 @@ export async function createOrPatchDNSRecord({
     dns_name,
     zone_id,
     dns_type,
-    proxied,...rest
+    proxied,
+    ...rest
 }: {
     content: string;
     api_token: string;
@@ -21,7 +24,7 @@ export async function createOrPatchDNSRecord({
     dns_name: string;
     dns_type: string;
     proxied?: boolean;
-}&Partial<DNSRecord>): Promise<DNSRecord> {
+} & Partial<DNSRecord>): Promise<DNSRecord> {
     const id = await get_dns_record_id_of_name_type({
         api_token,
         dns_name,
@@ -32,26 +35,28 @@ export async function createOrPatchDNSRecord({
         return await CreateDNSRecord({
             zone_id,
             APIToken: api_token,
-            record: {...rest,
+            record: {
+                ...rest,
                 content,
                 ttl,
                 proxied,
                 name: dns_name,
                 type: dns_type as DNSRecord["type"],
-            },
+            } as CreateOptions["record"],
         });
     } else {
         return await PatchDNSRecord({
             id,
             zone_id,
             APIToken: api_token,
-            record: {...rest,
+            record: {
+                ...rest,
                 content,
                 ttl,
                 proxied,
                 name: dns_name,
                 type: dns_type as DNSRecord["type"],
-            },
+            } as PatchOptions["record"],
         });
     }
 }

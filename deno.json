@@ -1,4 +1,5 @@
 {
+    "tasks": { "check": " deno check --remote --unstable ./mod.ts" },
     "fmt": {
         "options": {
             "indentWidth": 4,

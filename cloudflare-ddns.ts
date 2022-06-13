@@ -1,5 +1,6 @@
 import { delay } from "https://deno.land/std@0.143.0/async/delay.ts";
 import { assert } from "https://deno.land/std@0.143.0/testing/asserts.ts";
+import { DNSRecord } from "https://deno.land/x/masx200_cloudflare_api_dns_record_zone@1.0.2/DNSRecord.ts";
 import {
     getPublicIpv4,
     getPublicIpv6,
@@ -14,23 +15,27 @@ export function createStartDDNS(options: {
     get_public_ip: () => Promise<string>;
 }) {
     const { dns_type, get_public_ip } = options;
-    return async function startDDNS(options: {
-        proxied?: boolean;
-        api_token: string;
-        zone_name: string;
-        dns_name: string;
-        interval?: number;
-ttl?:number
-        signal?: AbortSignal;
-    }&Partial<DNSRecord>): Promise<void> {
-        let {ttl=1,
+    return async function startDDNS(
+        options: {
+            proxied?: boolean;
+            api_token: string;
+            zone_name: string;
+            dns_name: string;
+            interval?: number;
+            ttl?: number;
+            signal?: AbortSignal;
+        } & Partial<DNSRecord>,
+    ): Promise<void> {
+        let {
+            ttl = 1,
             proxied,
             interval = intervalDefault,
             api_token,
             zone_name,
             dns_name,
 
-            signal,...rest
+            signal,
+            ...rest
         } = options;
         if (signal?.aborted) {
             return;
@@ -38,7 +43,7 @@ ttl?:number
 
         const on_error = console.error;
         interval = Math.max(interval, intervalMinimum);
-        
+
         let public_ip_address: string | undefined;
         try {
             await update_ipv6();
