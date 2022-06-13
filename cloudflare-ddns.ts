@@ -91,6 +91,14 @@ export function createStartDDNS(options: {
         signal?.addEventListener("abort", () => {
             clearInterval(timer);
         });
+        return new Promise<void>((s) => {
+            if (signal?.aborted) {
+                return s();
+            }
+            signal?.addEventListener("abort", () => {
+                return s();
+            });
+        });
     };
 }
 export const startIpv6DDNS = createStartDDNS({
