@@ -8,8 +8,8 @@ import {
 import { createOrPatchDNSRecord } from "./createOrPatchDNSRecord.ts";
 import { get_zone_id_of_name } from "./get_zone_id_of_name.ts";
 const intervalDefault = 30 * 1000;
-const intervalMinimum = 20 * 1000;
-const retryDelay = 10 * 1000;
+const intervalMinimum = 30 * 1000;
+const retryDelay = 15* 1000;
 export function createStartDDNS(options: {
     dns_type: string;
     get_public_ip: () => Promise<string>;
