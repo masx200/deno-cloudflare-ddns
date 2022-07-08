@@ -15,3 +15,16 @@ https://deno.land/x/masx200_deno_cloudflare_ddns/mod.ts
 `get_zone_id_of_name`:根据`zone`的名字查找`zone`的`id`
 
 `get_dns_record_id_of_name_type`:根据`dns_record`的名字和类型查找`dns_record`的`id`
+
+## 例子
+
+```ts
+const api_token = "examplexapixtoken";
+
+const dns_name = "example.example.com";
+await startIpv6DDNS({
+    api_token,
+
+    dns_name,
+});
+```
