@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.152.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.153.0/testing/asserts.ts";
 import { get_zone_name_from_dns_name } from "./get_zone_name_from_dns_name.ts";
 
 Deno.test("get_zone_name_from_dns_name", () => {
